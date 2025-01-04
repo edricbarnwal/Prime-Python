@@ -1,28 +1,31 @@
 import random 
 
-print ("*** Think & Guess ***")
-print ("Guess Number in 6 lives\nBetween 1 to 100\nEnjoy!")
+print ("*** Welcome to Think & Guess! ***")
+print ("Can you guess the number I'm thinking of?")
+print ("You have 6 chances to guess a number between 1 to 100")
 
-guessing_num = random.randint(1, 100)
-
-def guess_number(lives=6): 
+def guess_number(lives=6):
+    guessing_num = random.randint(1, 100)
     while lives >= 0:
         try:
+            lives -= 1 
             user_guess = int(input("Enter you guess: "))
             if guessing_num == user_guess:
                 print ("!You win!")
                 break
             
             elif guessing_num > user_guess and user_guess:
-                print ("!To Low")
+                print ("To Low!")
             
             elif guessing_num < user_guess and user_guess:
-                print ("!To High")
-            lives -= 1
+                print ("To High!")
+            print (f"{lives} lives left.")
+               
+            
         except:
             print ("Enter a valid integer between 1 to 100.")
         if lives == 0:
-            print (f"You out of all lives\nCorrect guess is {guessing_num}")
+            print (f"You've used all your lives. Game Over!\nCorrect guess is {guessing_num}")
             break
 
 while True:
