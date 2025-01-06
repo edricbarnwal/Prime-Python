@@ -5,11 +5,32 @@ THE ULTIMATE ROCK PAPER SCISSOR GAME
 ----------------------------------------
 """)
 
-Games_Object = ["Rock", "Paper", "Scissor"]
+def game_play():
+    try:
+        Games_Object = ["Rock", "Paper", "Scissor"]
+        computer_choice = random.choice(Games_Object)
+        computer_index = Games_Object.index(computer_choice)
+        
+        user_index = int(input("Enter '1' for 'Rock | '2' for 'Paper' | '3' for 'Scissor': "))-1
+        print (f"Computer choose : {computer_choice}\nYou choose : {Games_Object[user_index]}")
+        
+        if user_index == computer_index:
+            print ("!Match Draw!\n")
+        elif user_index == 0 and computer_index == 1:
+            print ("Computer Win!\n")
+        elif user_index == 1 and computer_index == 2:
+            print ("Computer Win!\n")
+        elif user_index == 2 and computer_index == 0:
+            print ("Computer Win!\n")
+        else:
+            print ("!You WIN!\n")
+    except ValueError:
+        print ("Enter a valid Integer. Choose from '1' | '2' | '3'")
+        game_play()
 
-computer_choice = random.choice(Games_Object)
-
-user_choice_index = int(input("Enter '1' for 'Rock | '2' for 'Paper' | '3' for 'Scissor': "))
-
-computer_choice_index = Games_Object.index(computer_choice)
-
+while True:
+    game_play()
+    play_again = input("Do you want to play again (y/n): ")
+    if play_again != 'y':
+        print ("Thank you for playing.")
+        break
