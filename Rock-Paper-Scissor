@@ -1,43 +1,15 @@
+import random
 
-ROCK = ("""
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
+print ("""----------------------------------------
+THE ULTIMATE ROCK PAPER SCISSOR GAME
+----------------------------------------
 """)
 
-PAPER = ("""
-     _______
----'    ____)____
-           ______)
-          _______)
-         _______)
----.__________)
-""")
+Games_Object = ["Rock", "Paper", "Scissor"]
 
-SCISSOR = ("""
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-""")
+computer_choice = random.choice(Games_Object)
 
-Games_Object = [ROCK, PAPER, SCISSOR]
+user_choice_index = int(input("Enter '1' for 'Rock | '2' for 'Paper' | '3' for 'Scissor': "))
 
-print ("""------------------------------
-█▀█ █▀█ █▀▀ █▄▀  
-█▀▄ █▄█ █▄▄ █░█  
-
-█▀█ ▄▀█ █▀█ █▀▀ █▀█  
-█▀▀ █▀█ █▀▀ ██▄ █▀▄  
-
-█▀ █▀▀ █ █▀ █▀ █▀█ █▀█ █▀
-▄█ █▄▄ █ ▄█ ▄█ █▄█ █▀▄ ▄█
-
-------------------------------
-""")
+computer_choice_index = Games_Object.index(computer_choice)
 
