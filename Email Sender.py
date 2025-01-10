@@ -1,14 +1,23 @@
-import smptplib
+import smtplib
 
 sender_email = "xxxx@gmail.com"
 password = "xxxabc"
 
-sm = smtplib.SMTP("smtp.gmail.com", 587)
+receiver_mail = "xyz123@gail.com"
 
-sm.login(gmail, password)
+try:
+    sm = smtplib.SMTP("smtp.gmail.com", 587)
+    sm.starttls()
+    sm.login(sender_email, password)
+    
+    subject = "Subject: Test Email\n"
+    body = "Enter your message you want to send"
+    message = subject + body
+    sm.sendmail(sender_email, receiver_mail, message)
+    print ("Email Sent Succesfully!")
 
-message = "Enter your message you want to send"
+except Exception as e:
+    print (f"An Error Occured: {e}")
 
-sm.sendmail(gmail, receiver_mail, message)
-
-sm.quit()
+finally:
+    sm.quit()
